@@ -1,0 +1,18 @@
+{
+  "plugins": ["stylelint-prettier"],
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "no-duplicate-selectors": true,
+    "max-nesting-depth": [3, { "ignore": ["pseudo-classes"] }],
+    "selector-class-pattern": null,
+    "prettier/prettier": [
+      true,
+      {
+        "endOfLine": "auto",
+        "singleQuote": false
+      }
+    ]
+  }
+}
