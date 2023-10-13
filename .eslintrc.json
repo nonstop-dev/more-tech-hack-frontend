@@ -26,6 +26,7 @@
         "plugin:prettier/recommended" //error
       ],
       "rules": {
+        "@typescript-eslint/no-explicit-any": "warn",
         "@angular-eslint/directive-selector": [
           "warn",
           {
