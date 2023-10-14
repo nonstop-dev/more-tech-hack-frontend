@@ -1,10 +1,24 @@
-@import "./app/scss/typography";
 @import "./app/scss/fonts";
 @import "./app/scss/yandex-maps";
+@import "./app/scss/typography";
+@import "./app/scss/controls";
+@import "./app/scss/accordion";
 
 :root {
   --black: #2f3441;
+  --dark-grey: #6b7683;
+  --input-grey: #acb6c2;
+  --stroke-grey: #dce0eb;
+  --grey: #eaedf5;
+  --light-grey: #f3f7fa;
+  --white: #fff;
+  --accent-retail-blue: #0a2896;
+  --accent-medium-blue: #1e4bd2;
   --accent-cyan: #0af;
+  --system-focus: #cef;
+  --system-error: #ca181f;
+  --system-success: #4cc864;
+  --system-warning: #f1a038;
 }
 
 /* #region Reboot styles */

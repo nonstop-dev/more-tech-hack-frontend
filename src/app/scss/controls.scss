@@ -1,0 +1,128 @@
+.main-btn {
+  font-family: "VTB Group Web", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--white);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1e4bd2 0%, #008bf9 102.5%);
+  padding: 16px 52px;
+  transition: background-color ease-in-out 0.3s;
+
+  &:hover {
+    background: var(--buttons-hover-gradient, linear-gradient(90deg, #0a2896 0%, #004cf8 102.5%));
+  }
+
+  &:focus {
+    background: var(--accent-retail-blue, #0a2896);
+  }
+}
+
+.main-btn:disabled,
+.main-btn[disabled] {
+  background: var(--light-grey, #f3f7fa);
+  color: var(--input-grey);
+}
+
+.main-input {
+  min-height: 51px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-grey, #dce0eb);
+  background: var(--white, #fff);
+  color: var(--dark-grey, #6b7683);
+  outline: none;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    color: var(--accent-medium-blue, #1e4bd2);
+    border: 2px solid var(--accent-medium-blue, #1e4bd2);
+  }
+}
+
+.main-radio-label {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-grey, #dce0eb);
+  background: var(--white, #fff);
+  user-select: none;
+  cursor: pointer;
+}
+
+.chips-radio-label {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--light-grey, #f3f7fa);
+  user-select: none;
+  cursor: pointer;
+}
+
+.main-checkbox {
+  width: 15px;
+  height: 15px;
+  background-color: var(--grey);
+  border-radius: 3px;
+  margin: 0;
+}
+
+.main-checkbox-container {
+  position: relative;
+  display: inline;
+  padding-left: 30px;
+  user-select: none;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--grey);
+    border-radius: 3px;
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.main-checkbox-container:hover input ~ .checkmark {
+  background-color: var(--dark-grey);
+}
+
+/* When the checkbox is checked, add a blue background */
+.main-checkbox-container input:checked ~ .checkmark {
+  background-color: var(--accent-medium-blue);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the checkmark/indicator */
+.main-checkbox-container .checkmark::after {
+  left: 7px;
+  top: 2px;
+  width: 4px;
+  height: 11px;
+  border: solid var(--white);
+  border-radius: 1px;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.main-checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}
