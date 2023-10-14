@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, finalize, tap } from 'rxjs';
 import { PointService } from 'src/app/services/point.service';
 import { IPoint, ResponseModel } from 'src/app/services/types';
@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
   };
 
   placemarks: Placemark[] = [];
+  selectedPlacemark: Placemark | null = null;
+  selectedTransport: string = 'taxi';
   placemarkOptions: ymaps.IPlacemarkOptions = {
     iconLayout: 'default#image',
     iconImageHref: '../assets/images/map_logo.png',
@@ -36,6 +38,8 @@ export class HomeComponent implements OnInit {
   };
 
   points: IPoint[] = [];
+
+  parameters: ymaps.control.IRoutePanelParameters | null = null;
 
   ngOnInit(): void {
     this.pointService
@@ -64,5 +68,35 @@ export class HomeComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  selectPlacemark(placemark: Placemark): void {
+    this.parameters = null;
+    this.selectedPlacemark = placemark;
+  }
+
+  buildRoute(): void {
+    if (!this.selectedPlacemark) {
+        return;
+    }
+
+    var to = `${this.selectedPlacemark.geometry[0]},${this.selectedPlacemark.geometry[1]}`;
+    this.parameters = {
+        state: {
+            type: this.selectedTransport,
+            from: 'Москва, Льва Толстого 16',
+            to
+        },
+        options: {
+            visible: false
+        }
+    };
+  }
+
+  changeTransport(type: string) {
+    this.parameters = null;
+    this.selectedTransport = type;
+    this.cdr.detectChanges();
+    this.buildRoute();
   }
 }
