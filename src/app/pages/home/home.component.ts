@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
     this.pointService
       .get()
       .pipe(
-        tap((resp: IPoint[]) => {
-          this.points = resp;
+        tap((resp: any) => {
+          this.points = resp.result;
           this.points.forEach((point: IPoint) => {
             const geometry = [point.latitude, point.longitude];
             this.placemarks.push({
