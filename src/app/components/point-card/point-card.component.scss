@@ -1,0 +1,32 @@
+.container {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  z-index: 10;
+  width: 100%;
+  max-width: 416px;
+  min-width: 320px;
+  min-height: 200px;
+  padding: 32px 18px 48px 28px;
+  border-radius: 16px;
+  background: #fff;
+  max-height: 85vh;
+  overflow: hidden;
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+
+  img {
+    width: 102px;
+    height: 40px;
+  }
+
+  h1 {
+    display: inline;
+    margin-left: 8px;
+    color: var(--accent-cyan, #0af);
+  }
+}

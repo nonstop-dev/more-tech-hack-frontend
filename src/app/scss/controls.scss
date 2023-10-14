@@ -9,6 +9,9 @@
   background: linear-gradient(90deg, #1e4bd2 0%, #008bf9 102.5%);
   padding: 16px 52px;
   transition: background-color ease-in-out 0.3s;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
 
   &:hover {
     background: var(--buttons-hover-gradient, linear-gradient(90deg, #0a2896 0%, #004cf8 102.5%));
