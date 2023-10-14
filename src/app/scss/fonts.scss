@@ -1,0 +1,76 @@
+$icn-font-path: "../assets/fonts" !default;
+
+// Light
+@font-face {
+  font-family: "VTB Group Web";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  src: url("../../assets/fonts/VTBGroupUI-Light/VTBGroupUI-Light.eot");
+  src:
+    url("../../assets/fonts/VTBGroupUI-Light/VTBGroupUI-Light.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/VTBGroupUI-Light/VTBGroupUI-Light.woff2") format("woff2"),
+    url("../../assets/fonts/VTBGroupUI-Light/VTBGroupUI-Light.woff") format("woff"),
+    url("../../assets/fonts/VTBGroupUI-Light/VTBGroupUI-Light.ttf") format("truetype");
+  font-display: swap;
+}
+
+// Normal
+@font-face {
+  font-family: "VTB Group Web";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url("../../assets/fonts/VTBGroupUI-Regular/VTBGroupUI-Regular.eot");
+  src:
+    url("../../assets/fonts/VTBGroupUI-Regular/VTBGroupUI-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/VTBGroupUI-Regular/VTBGroupUI-Regular.woff2") format("woff2"),
+    url("../../assets/fonts/VTBGroupUI-Regular/VTBGroupUI-Regular.woff") format("woff"),
+    url("../../assets/fonts/VTBGroupUI-Regular/VTBGroupUI-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+// Medium
+@font-face {
+  font-family: "VTB Group Web";
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  src: url("../../assets/fonts/VTBGroupUI-Medium/VTBGroupUI-Medium.eot");
+  src:
+    url("../../assets/fonts/VTBGroupUI-Medium/VTBGroupUI-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/VTBGroupUI-Medium/VTBGroupUI-Medium.woff2") format("woff2"),
+    url("../../assets/fonts/VTBGroupUI-Medium/VTBGroupUI-Medium.woff") format("woff"),
+    url("../../assets/fonts/VTBGroupUI-Medium/VTBGroupUI-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+// Semi Bold (Demi Bold)
+@font-face {
+  font-family: "VTB Group Web";
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  src: url("../../assets/fonts/VTBGroupUI-DemiBold/VTBGroupUI-DemiBold.eot");
+  src:
+    url("../../assets/fonts/VTBGroupUI-DemiBold/VTBGroupUI-DemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/VTBGroupUI-DemiBold/VTBGroupUI-DemiBold.woff2") format("woff2"),
+    url("../../assets/fonts/VTBGroupUI-DemiBold/VTBGroupUI-DemiBold.woff") format("woff"),
+    url("../../assets/fonts/VTBGroupUI-DemiBold/VTBGroupUI-DemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+// Bold
+@font-face {
+  font-family: "VTB Group Web";
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  src: url("../../assets/fonts/VTBGroupUI-Bold/VTBGroupUI-Bold.eot");
+  src:
+    url("../../assets/fonts/VTBGroupUI-Bold/VTBGroupUI-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../../assets/fonts/VTBGroupUI-Bold/VTBGroupUI-Bold.woff2") format("woff2"),
+    url("../../assets/fonts/VTBGroupUI-Bold/VTBGroupUI-Bold.woff") format("woff"),
+    url("../../assets/fonts/VTBGroupUI-Bold/VTBGroupUI-Bold.ttf") format("truetype");
+  font-display: swap;
+}
