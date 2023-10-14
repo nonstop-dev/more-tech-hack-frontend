@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './search-card.component.html',
   styleUrls: ['./search-card.component.scss'],
 })
-export class SearchCardComponent {}
+export class SearchCardComponent {
+  public currentAccordeonTab = '';
+}

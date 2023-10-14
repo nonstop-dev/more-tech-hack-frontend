@@ -88,7 +88,7 @@
 
   input[type="radio"]:checked + label {
     color: var(--white, #fff);
-    background: var(--black, #2f3441);
+    background: var(--accent-medium-blue);
   }
 }
 
@@ -143,5 +143,48 @@
 .controls-way {
   h3 {
     margin-bottom: 8px;
+  }
+}
+
+.controls-service {
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  .accordeon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    button {
+      position: relative;
+      display: flex;
+      gap: 3px;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 0;
+      outline: inherit;
+      cursor: pointer;
+      transition: rotate ease-in-out 0.2s;
+
+      svg {
+        transition: rotate ease-in-out 0.2s;
+      }
+    }
+  }
+}
+
+.active {
+  color: var(--accent-medium-blue);
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  svg {
+    transform: rotate(180deg);
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    path {
+      fill: var(--accent-medium-blue);
+    }
   }
 }
