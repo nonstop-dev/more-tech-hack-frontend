@@ -8,6 +8,7 @@ import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } 
 })
 export class SearchCardComponent {
   @Output() search = new EventEmitter();
+  @Output() changeTransportEvent = new EventEmitter<string>();
 
   private readonly searchSubject = new Subject<string | undefined>();  
   public currentAccordeonTab = '';
@@ -29,5 +30,17 @@ export class SearchCardComponent {
   public onSearchQueryInput(event: Event): void {
     const searchQuery = (event.target as HTMLInputElement).value;
     this.searchSubject.next(searchQuery?.trim());
+  }
+
+  public handleAccordion(id: string) {
+    if (id === this.currentAccordeonTab) {
+      this.currentAccordeonTab = '';
+      return;
+    }
+    this.currentAccordeonTab = id;
+  }
+
+  changeTransport(type: string): void {
+    this.changeTransportEvent.emit(type);
   }
 }

@@ -46,7 +46,7 @@
     <div class="controls-way">
       <h3>Как добраться</h3>
       <div class="controls-radio_chips">
-        <input type="radio" id="car" name="way" value="car" checked />
+        <input type="radio" id="car" name="way" value="car" checked (click)="changeTransport('taxi')" />
         <label for="car" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -57,7 +57,7 @@
           </span>
           На машине
         </label>
-        <input type="radio" id="pedestrian" name="way" value="pedestrian" />
+        <input type="radio" id="pedestrian" name="way" value="pedestrian" (click)="changeTransport('pedestrian')" />
         <label for="pedestrian" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -70,7 +70,7 @@
           </span>
           Пешком
         </label>
-        <input type="radio" id="bus" name="way" value="bus" />
+        <input type="radio" id="bus" name="way" value="bus" (click)="changeTransport('masstransit')" />
         <label for="bus" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -87,56 +87,154 @@
       <h3>Выберите услугу</h3>
       <!-- #region Accordion -->
       <div class="accordeon">
-        <button class="text-lg" (click)="currentAccordeonTab = 'cards'">
-          <span>Карты</span>
-          <span class="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
-                fill="#2F3441" />
-            </svg>
-          </span>
-        </button>
-        <button class="text-lg" (click)="currentAccordeonTab = 'cards'">
-          <span>Кредиты</span>
-          <span class="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
-                fill="#2F3441" />
-            </svg>
-          </span>
-        </button>
-        <button class="text-lg">
-          <span>Ипотека</span
-          ><span class="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
-                fill="#2F3441" />
-            </svg>
-          </span>
-        </button>
-        <button class="text-lg">
-          <span>Вклады и счета</span
-          ><span class="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
-                fill="#2F3441" />
-            </svg>
-          </span>
-        </button>
-        <button class="text-lg">
-          <span>Платежи и переводы</span
-          ><span class="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
-                fill="#2F3441" />
-            </svg>
-          </span>
-        </button>
+        <div class="accordeon-item_container">
+          <button
+            class="text-lg"
+            (click)="handleAccordion('cards')"
+            tabindex="0"
+            [ngClass]="{
+              active: currentAccordeonTab === 'cards'
+            }">
+            <span>Карты</span>
+            <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
+                  fill="#2F3441" />
+              </svg>
+            </span>
+          </button>
+          <div *ngIf="currentAccordeonTab === 'cards'" class="accordeon-item">
+            <div class="controls-radio_chips">
+              <input type="radio" id="debit" name="card" value="debit" />
+              <label for="debit" class="chips-radio-label text-sm" tabindex="0">Дебетовые карты</label>
+              <input type="radio" id="credit" name="card" value="credit" />
+              <label for="credit" class="chips-radio-label text-sm" tabindex="0">Кредитные карты</label>
+              <input type="radio" id="momentum" name="card" value="momentum" />
+              <label for="momentum" class="chips-radio-label text-sm" tabindex="0">Моментальный выпуск карт</label>
+            </div>
+          </div>
+        </div>
+        <div class="accordeon-item_container">
+          <button
+            class="text-lg"
+            (click)="handleAccordion('credits')"
+            tabindex="0"
+            [ngClass]="{
+              active: currentAccordeonTab === 'credits'
+            }">
+            <span>Кредиты</span>
+            <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
+                  fill="#2F3441" />
+              </svg>
+            </span>
+          </button>
+          <div *ngIf="currentAccordeonTab === 'credits'" class="accordeon-item">
+            <div class="controls-radio_chips">
+              <input type="radio" id="cash" name="credits" value="cash" />
+              <label for="cash" class="chips-radio-label text-sm" tabindex="0">Кредит наличными</label>
+              <input type="radio" id="express" name="credits" value="express" />
+              <label for="express" class="chips-radio-label text-sm" tabindex="0">Экспресс-кредит</label>
+              <input type="radio" id="refinancing" name="credits" value="refinancing" />
+              <label for="refinancing" class="chips-radio-label text-sm" tabindex="0">Рефинансирование</label>
+              <input type="radio" id="auto" name="credits" value="auto" />
+              <label for="auto" class="chips-radio-label text-sm" tabindex="0">Автокредит</label>
+            </div>
+          </div>
+        </div>
+        <div class="accordeon-item_container">
+          <button
+            class="text-lg"
+            tabindex="0"
+            (click)="handleAccordion('mortgage')"
+            [ngClass]="{
+              active: currentAccordeonTab === 'mortgage'
+            }">
+            <span>Ипотека</span
+            ><span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
+                  fill="#2F3441" />
+              </svg>
+            </span>
+          </button>
+          <div *ngIf="currentAccordeonTab === 'mortgage'" class="accordeon-item">
+            <div class="controls-radio_chips">
+              <input type="radio" id="registration" name="mortgage" value="registration" />
+              <label for="registration" class="chips-radio-label text-sm" tabindex="0">Оформление ипотеки</label>
+              <input type="radio" id="reduction" name="mortgage" value="reduction" />
+              <label for="reduction" class="chips-radio-label text-sm" tabindex="0">Снижение ставки</label>
+              <input type="radio" id="repayment" name="mortgage" value="repayment" />
+              <label for="repayment" class="chips-radio-label text-sm" tabindex="0">Досрочное погашение</label>
+            </div>
+          </div>
+        </div>
+        <div class="accordeon-item_container">
+          <button
+            class="text-lg"
+            (click)="handleAccordion('deposits')"
+            tabindex="0"
+            [ngClass]="{
+              active: currentAccordeonTab === 'deposits'
+            }">
+            <span>Вклады и счета</span
+            ><span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
+                  fill="#2F3441" />
+              </svg>
+            </span>
+          </button>
+          <div *ngIf="currentAccordeonTab === 'deposits'" class="accordeon-item">
+            <div class="controls-radio_chips">
+              <input type="radio" id="cumulative" name="deposits" value="cumulative" />
+              <label for="cumulative" class="chips-radio-label text-sm" tabindex="0">Открыть накопительный счет</label>
+              <input type="radio" id="deposit" name="deposits" value="deposit" />
+              <label for="deposit" class="chips-radio-label text-sm" tabindex="0">Открыть вклад</label>
+              <input type="radio" id="safe" name="deposits" value="safe" />
+              <label for="safe" class="chips-radio-label text-sm" tabindex="0">Сейфовые ячейки</label>
+              <input type="radio" id="metalAccount" name="deposits" value="metalAccount" />
+              <label for="metalAccount" class="chips-radio-label text-sm" tabindex="0"
+                >Открыть металлический счет</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="accordeon-item_container">
+          <button
+            class="text-lg"
+            (click)="handleAccordion('payments')"
+            tabindex="0"
+            [ngClass]="{
+              active: currentAccordeonTab === 'payments'
+            }">
+            <span>Платежи и переводы</span
+            ><span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5.34901 8.21499C5.27268 8.14631 5.18288 8.09263 5.08476 8.05699C4.98663 8.02135 4.8821 8.00447 4.77712 8.0073C4.67214 8.01012 4.56877 8.03261 4.47292 8.07347C4.37706 8.11433 4.2906 8.17276 4.21847 8.24543C4.14634 8.31811 4.08995 8.40359 4.05252 8.49701C4.01509 8.59044 3.99735 8.68996 4.00032 8.78991C4.00329 8.88985 4.02691 8.98826 4.06983 9.07952C4.11274 9.17078 4.17412 9.25309 4.25045 9.32177L11.4462 15.7919C11.5947 15.9255 11.7912 16 11.9955 16C12.1998 16 12.3963 15.9255 12.5448 15.7919L19.7414 9.32177C19.8194 9.25355 19.8824 9.17125 19.9267 9.07966C19.971 8.98806 19.9957 8.889 19.9995 8.78822C20.0033 8.68745 19.9859 8.58696 19.9486 8.4926C19.9112 8.39825 19.8545 8.3119 19.7818 8.23859C19.7091 8.16527 19.6218 8.10644 19.525 8.06551C19.4282 8.02458 19.3238 8.00238 19.2179 8.00018C19.112 7.99799 19.0067 8.01584 18.9081 8.05272C18.8095 8.08959 18.7196 8.14475 18.6436 8.21499L11.9955 14.1919L5.34901 8.21499Z"
+                  fill="#2F3441" />
+              </svg>
+            </span>
+          </button>
+          <div *ngIf="currentAccordeonTab === 'payments'" class="accordeon-item">
+            <div class="controls-radio_chips">
+              <input type="radio" id="payment" name="payments" value="payment" />
+              <label for="payment" class="chips-radio-label text-sm" tabindex="0">Оплата услуг</label>
+              <input type="radio" id="transfer" name="payments" value="transfer" />
+              <label for="transfer" class="chips-radio-label text-sm" tabindex="0">Переводы по РФ</label>
+              <input type="radio" id="intTransfer" name="payments" value="intTransfer" />
+              <label for="intTransfer" class="chips-radio-label text-sm" tabindex="0">Международные переводы</label>
+              <input type="radio" id="exchange" name="payments" value="exchange" />
+              <label for="exchange" class="chips-radio-label text-sm" tabindex="0">Обмен валют</label>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- #endregion -->
     </div>
