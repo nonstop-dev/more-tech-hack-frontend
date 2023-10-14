@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class SearchCardComponent {
   public currentAccordeonTab = '';
+
+  public handleAccordion(id: string) {
+    if (id === this.currentAccordeonTab) {
+      this.currentAccordeonTab = '';
+      return;
+    }
+    this.currentAccordeonTab = id;
+  }
 }
