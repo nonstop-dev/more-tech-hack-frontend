@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="map-container">
-    <ya-map [center]="[55.623415, 37.717934]">
-      <!-- <ya-clusterer [options]="clustererOptions"> -->
-      <ya-placemark
-        *ngFor="let placemark of placemarks"
-        [geometry]="placemark.geometry"
-        [properties]="placemark.properties"
-        [options]="placemark.options"></ya-placemark>
-      <!-- </ya-clusterer> -->
+  <div class="map-container" *ngIf="(isLoading | async) === false">
+    <ya-map [center]="[55.75, 37.63]">
+      <ya-clusterer [options]="clustererOptions">
+        <ya-placemark
+          *ngFor="let placemark of placemarks"
+          [geometry]="placemark.geometry"
+          [properties]="placemark.properties"
+          [options]="placemark.options"></ya-placemark>
+      </ya-clusterer>
     </ya-map>
   </div>
 </div>

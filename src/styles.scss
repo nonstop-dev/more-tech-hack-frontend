@@ -8,6 +8,11 @@
   --link-color-hover: #303030;
 }
 
+[class*="islands_clusterSmallIcon"],
+[class*="islands_clusterMediumIcon"] {
+  color: #1e4bd2;
+}
+
 /* #region Reboot styles */
 html,
 body {
