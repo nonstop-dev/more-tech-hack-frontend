@@ -1,6 +1,8 @@
 <div class="container">
-  <app-search-card (changeTransportEvent)="changeTransport($event)" (search)="onSearchChanged($event)"></app-search-card>
-  <app-point-card (buildRouteEvent)="buildRoute()"></app-point-card>
+  <app-search-card
+    (changeTransportEvent)="changeTransport($event)"
+    (search)="onSearchChanged($event)"></app-search-card>
+  <app-point-card (buildRouteEvent)="buildRoute()" *ngIf="false"></app-point-card>
   <div class="map-container" *ngIf="(isLoading | async) === false">
     <ya-map [center]="[55.75, 37.63]">
       <ya-clusterer [options]="clustererOptions">

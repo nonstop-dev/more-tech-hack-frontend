@@ -1,29 +1,26 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
   styleUrls: ['./search-card.component.scss'],
 })
-export class SearchCardComponent {
+export class SearchCardComponent implements OnInit, OnDestroy {
   @Output() search = new EventEmitter();
   @Output() changeTransportEvent = new EventEmitter<string>();
 
-  private readonly searchSubject = new Subject<string | undefined>();  
+  private readonly searchSubject = new Subject<string | undefined>();
   public currentAccordeonTab = '';
   private searchSubscription?: Subscription;
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.searchSubscription = this.searchSubject
-      .pipe(
-        debounceTime(300),
-        distinctUntilChanged()
-      )
-      .subscribe((searchQuery) => (this.search.emit(searchQuery)));
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((searchQuery) => this.search.emit(searchQuery));
   }
 
-  public ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.searchSubscription?.unsubscribe();
   }
 

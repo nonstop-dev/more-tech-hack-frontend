@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, finalize, tap } from 'rxjs';
 import { PointService } from 'src/app/services/point.service';
 import { IPoint, ResponseModel } from 'src/app/services/types';
@@ -71,28 +71,28 @@ export class HomeComponent implements OnInit {
   }
 
   public onSearchChanged(value: string): void {
-    let placemarks: Placemark[] = [];
+    const placemarks: Placemark[] = [];
     this.points
-    .filter((point: IPoint) => point.address.includes(value))
-    .forEach((point: IPoint) => {
-      const geometry = [point.latitude, point.longitude];
-      placemarks.push({
-        geometry,
-        properties: {
-          hintContent: point.salePointName,
-          balloonContent: 'Содержание балуна',
-        },
-        options: {
-          iconLayout: 'default#image',
-          iconImageHref: '../assets/images/map_logo.png',
-          iconImageSize: [36, 36],
-        },
+      .filter((point: IPoint) => point.address.includes(value))
+      .forEach((point: IPoint) => {
+        const geometry = [point.latitude, point.longitude];
+        placemarks.push({
+          geometry,
+          properties: {
+            hintContent: point.salePointName,
+            balloonContent: 'Содержание балуна',
+          },
+          options: {
+            iconLayout: 'default#image',
+            iconImageHref: '../assets/images/map_logo.png',
+            iconImageSize: [36, 36],
+          },
+        });
       });
-    });
 
     this.placemarks = placemarks;
   }
-  
+
   selectPlacemark(placemark: Placemark): void {
     this.parameters = null;
     this.selectedPlacemark = placemark;
@@ -100,19 +100,19 @@ export class HomeComponent implements OnInit {
 
   buildRoute(): void {
     if (!this.selectedPlacemark) {
-        return;
+      return;
     }
 
-    var to = `${this.selectedPlacemark.geometry[0]},${this.selectedPlacemark.geometry[1]}`;
+    const to = `${this.selectedPlacemark.geometry[0]},${this.selectedPlacemark.geometry[1]}`;
     this.parameters = {
-        state: {
-            type: this.selectedTransport,
-            from: 'Москва, Льва Толстого 16',
-            to
-        },
-        options: {
-            visible: false
-        }
+      state: {
+        type: this.selectedTransport,
+        from: 'Москва, Льва Толстого 16',
+        to,
+      },
+      options: {
+        visible: false,
+      },
     };
   }
 

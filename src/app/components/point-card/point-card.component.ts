@@ -6,9 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./point-card.component.scss'],
 })
 export class PointCardComponent {
-    @Output() buildRouteEvent = new EventEmitter();
+  @Output() buildRouteEvent = new EventEmitter();
 
-    buildRoute() {
-        this.buildRouteEvent.emit();
-    }
+  buildRoute() {
+    this.buildRouteEvent.emit();
+  }
 }

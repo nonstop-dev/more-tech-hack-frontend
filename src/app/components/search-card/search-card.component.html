@@ -4,8 +4,14 @@
     <h1>Поиск отделения</h1>
   </div>
   <div class="controls">
-    <input type="text" name="search" id="search" placeholder="Введите адрес" class="main-input text-lg" tabindex="0" 
-    (input)="onSearchQueryInput($event)"/>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Введите адрес"
+      class="main-input text-lg"
+      tabindex="0"
+      (input)="onSearchQueryInput($event)" />
     <div class="controls-checkbox">
       <label class="main-checkbox-container text-md" for="recommend" tabindex="0">
         Показать только рекомендуемые
