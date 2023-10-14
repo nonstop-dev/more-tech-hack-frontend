@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-card',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SearchCardComponent {
   public currentAccordeonTab = '';
+  @Output() changeTransportEvent = new EventEmitter<string>();
 
   public handleAccordion(id: string) {
     if (id === this.currentAccordeonTab) {
@@ -14,5 +15,9 @@ export class SearchCardComponent {
       return;
     }
     this.currentAccordeonTab = id;
+  }
+
+  changeTransport(type: string): void {
+    this.changeTransportEvent.emit(type);
   }
 }

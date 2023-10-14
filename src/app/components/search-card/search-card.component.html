@@ -45,7 +45,7 @@
     <div class="controls-way">
       <h3>Как добраться</h3>
       <div class="controls-radio_chips">
-        <input type="radio" id="car" name="way" value="car" checked />
+        <input type="radio" id="car" name="way" value="car" checked (click)="changeTransport('taxi')" />
         <label for="car" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -56,7 +56,7 @@
           </span>
           На машине
         </label>
-        <input type="radio" id="pedestrian" name="way" value="pedestrian" />
+        <input type="radio" id="pedestrian" name="way" value="pedestrian" (click)="changeTransport('pedestrian')" />
         <label for="pedestrian" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -69,7 +69,7 @@
           </span>
           Пешком
         </label>
-        <input type="radio" id="bus" name="way" value="bus" />
+        <input type="radio" id="bus" name="way" value="bus" (click)="changeTransport('masstransit')" />
         <label for="bus" class="chips-radio-label text-sm" tabindex="0">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
