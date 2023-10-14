@@ -38,3 +38,20 @@ export interface IPointBookBody {
   time: string; //date-time
   serviceType: string;
 }
+
+export class ResponseModel<T> {
+  result: T;
+  asyncState: any;
+  creationOptions?: number;
+  exception: any;
+  id?: number;
+  isCanceled?: boolean;
+  isCompleted?: boolean;
+  isCompletedSuccessfully?: boolean;
+  isFaulted?: boolean;
+  status?: number;
+
+  constructor(result: T) {
+    this.result = result;
+  }
+}

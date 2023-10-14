@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, finalize, tap } from 'rxjs';
 import { PointService } from 'src/app/services/point.service';
-import { IPoint } from 'src/app/services/types';
+import { IPoint, ResponseModel } from 'src/app/services/types';
 
 interface Placemark {
   geometry: number[];
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     this.pointService
       .get()
       .pipe(
-        tap((resp: any) => {
+        tap((resp: ResponseModel<IPoint[]>) => {
           this.points = resp.result;
           this.points.forEach((point: IPoint) => {
             const geometry = [point.latitude, point.longitude];
