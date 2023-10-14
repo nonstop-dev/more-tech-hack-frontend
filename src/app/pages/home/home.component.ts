@@ -65,4 +65,27 @@ export class HomeComponent implements OnInit {
       )
       .subscribe();
   }
+
+  public onSearchChanged(value: string): void {
+    let placemarks: Placemark[] = [];
+    this.points
+    .filter((point: IPoint) => point.address.includes(value))
+    .forEach((point: IPoint) => {
+      const geometry = [point.latitude, point.longitude];
+      placemarks.push({
+        geometry,
+        properties: {
+          hintContent: point.salePointName,
+          balloonContent: 'Содержание балуна',
+        },
+        options: {
+          iconLayout: 'default#image',
+          iconImageHref: '../assets/images/map_logo.png',
+          iconImageSize: [36, 36],
+        },
+      });
+    });
+
+    this.placemarks = placemarks;
+  }
 }
