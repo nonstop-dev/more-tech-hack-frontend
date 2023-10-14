@@ -1,16 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/scss/typography";
+@import "./app/scss/fonts";
+@import "./app/scss/yandex-maps";
 
 :root {
-  --primary-background-color: #fff;
-  --primary-text-color: #e5e5e5;
-  --second-background-color: #292c32;
-  --link-color: #31b4f2;
-  --link-color-hover: #303030;
-}
-
-[class*="islands_clusterSmallIcon"],
-[class*="islands_clusterMediumIcon"] {
-  color: #1e4bd2;
+  --black: #2f3441;
+  --accent-cyan: #0af;
 }
 
 /* #region Reboot styles */
@@ -26,8 +20,6 @@ body {
 
 * {
   box-sizing: border-box;
-
-  // font-family: "Alegreya Sans", sans-serif;
 }
 
 h1,
@@ -47,12 +39,9 @@ ul {
 
 p {
   margin: 0;
-  font-size: 20px;
-  line-height: 30px;
 }
 
 a {
-  color: var(--link-color);
   text-decoration: none;
   font-size: 18px;
   transition: color 0.1s ease-in-out;
@@ -60,19 +49,6 @@ a {
   &[role="button"] {
     cursor: pointer;
   }
-
-  &:hover {
-    color: var(--link-color-hover);
-  }
-}
-
-.main-text {
-  font-family: "Alegreya Sans", sans-serif;
-}
-
-.fs-regular {
-  font-size: 20px;
-  line-height: 30px;
 }
 
 /* #endregion */

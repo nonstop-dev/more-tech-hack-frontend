@@ -25,14 +25,17 @@ export class HomeComponent implements OnInit {
   clustererOptions: ymaps.IClustererOptions = {
     gridSize: 36,
     clusterDisableClickZoom: true,
+    // preset: '../assets/cluster.png',
     preset: 'islands#blueClusterIcons',
-    iconColor: '#1E4BD2',
+    // iconLayout: 'default#image',
+    // iconImageHref: '../assets/images/cluster.png',
+    // iconColor: '#1E4BD2',
   };
 
   placemarks: Placemark[] = [];
   placemarkOptions: ymaps.IPlacemarkOptions = {
     iconLayout: 'default#image',
-    iconImageHref: '../assets/map_logo.png',
+    iconImageHref: '../assets/images/map_logo.png',
     iconImageSize: [32, 32],
   };
 
@@ -106,7 +109,7 @@ export class HomeComponent implements OnInit {
               },
               options: {
                 iconLayout: 'default#image',
-                iconImageHref: '../assets/map_logo.png',
+                iconImageHref: '../assets/images/map_logo.png',
                 iconImageSize: [36, 36],
               },
             });

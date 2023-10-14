@@ -1,4 +1,5 @@
 <div class="container">
+  <app-search-card></app-search-card>
   <div class="map-container" *ngIf="(isLoading | async) === false">
     <ya-map [center]="[55.75, 37.63]">
       <ya-clusterer [options]="clustererOptions">
