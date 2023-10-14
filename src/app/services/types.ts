@@ -1,5 +1,6 @@
 /* eslint-disable no-inline-comments */
 export interface IPoint {
+  id: string;
   salePointName: string;
   address: string;
   status: string;

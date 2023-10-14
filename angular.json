@@ -67,7 +67,8 @@
               "browserTarget": "more-tech-nonstop:build:production"
             },
             "development": {
-              "browserTarget": "more-tech-nonstop:build:development"
+              "browserTarget": "more-tech-nonstop:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

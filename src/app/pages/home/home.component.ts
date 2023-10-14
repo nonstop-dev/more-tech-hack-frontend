@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
+import { PointService } from 'src/app/services/point.service';
+import { IPoint } from 'src/app/services/types';
 
 interface Placemark {
   geometry: number[];
@@ -12,6 +15,8 @@ interface Placemark {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  constructor(private readonly pointService: PointService) {}
+
   clustererOptions: ymaps.IClustererOptions = {
     gridSize: 32,
     clusterDisableClickZoom: true,
@@ -89,6 +94,15 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.pointService
+      .get()
+      .pipe(
+        tap((resp: IPoint[]) => {
+          console.log(resp);
+        })
+      )
+      .subscribe();
+
     this.points.forEach((geometry) => {
       this.placemarks.push({
         geometry,

@@ -7,12 +7,12 @@ import { IPoint, IPointBookBody, IPointQuery } from './types';
 @Injectable({
   providedIn: 'root',
 })
-export class PointsService {
+export class PointService {
   constructor(private readonly http: HttpClient) {}
 
-  private readonly pointsUrl = environment.apiUrl + 'points';
+  private readonly pointsUrl = environment.apiUrl + '/points';
 
-  public get(paramsObject: IPointQuery): Observable<IPoint[]> {
+  public get(paramsObject?: IPointQuery): Observable<IPoint[]> {
     const params = new HttpParams({ fromObject: paramsObject });
     return this.http.get<IPoint[]>(this.pointsUrl, { params: params });
   }
