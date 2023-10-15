@@ -4,6 +4,41 @@
     <h1>Поиск отделения</h1>
   </div>
   <div class="controls">
+    <div class="controls-heading">
+      <h2>
+        {{ currentPoint?.salePointName }}
+        <span class="text-sm"> {{ currentPoint?.address }}</span>
+      </h2>
+      <span class="close" (click)="closePointTab()"></span>
+    </div>
+    <div class="controls-service">
+      <h3>Обслуживание</h3>
+      <div class="text-md">Физические лица</div>
+      <div [innerHTML]="workOnHolidaysIndividual"></div>
+      <div class="text-md">Юридические лица</div>
+      <div [innerHTML]="workOnHolidays"></div>
+    </div>
+    <div class="controls-workload">
+      <h3>Загруженность по операциям</h3>
+      <div class="controls-radio_chips">
+        <input type="radio" id="day" name="interval" value="day" checked />
+        <label for="day" class="chips-radio-label text-sm" tabindex="0">День</label>
+        <input type="radio" id="week" name="interval" value="week" />
+        <label for="week" class="chips-radio-label text-sm" tabindex="0">Неделя</label>
+      </div>
+      <img src="./../../../assets/images/chart.svg" alt="chart" />
+    </div>
+    <div class="controls-date">
+      <h3>Время посещения</h3>
+      <div class="controls-date_container">
+        <input type="text" name="search" id="search" placeholder="14.10.2023" class="main-input text-lg" tabindex="0" />
+        <input type="text" name="search" id="search" placeholder="14:00" class="main-input text-lg" tabindex="0" />
+      </div>
+    </div>
+    <div class="controls-book">
+      <button class="main-btn main-btn_gray">Забронировать</button>
+      <span class="text-sm">Бронирование на ближайшее время с учетом пути</span>
+    </div>
     <button class="main-btn" (click)="buildRoute()">Построить маршрут</button>
   </div>
 </div>

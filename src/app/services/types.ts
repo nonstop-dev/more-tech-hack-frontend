@@ -4,9 +4,9 @@ export interface IPoint {
   salePointName: string;
   address: string;
   status: string;
-  openHours: IPointOpenHour;
+  openHours: IPointOpenHour[];
   rko: boolean;
-  openHoursIndividual: IPointOpenHour;
+  openHoursIndividual: IPointOpenHour[];
   officeType: string;
   salePointFormat: string;
   suoAvailability: string;
