@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     gridSize: 36,
     clusterDisableClickZoom: true,
     preset: 'islands#blueClusterIcons',
+    hasBalloon: false,
   };
 
   placemarks: Placemark[] = [];
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
     iconLayout: 'default#image',
     iconImageHref: '../assets/images/map_logo.png',
     iconImageSize: [32, 32],
+    balloon: false,
   };
 
   points: IPoint[] = [];
@@ -53,7 +55,7 @@ export class HomeComponent implements OnInit {
               geometry,
               properties: {
                 hintContent: point.salePointName,
-                balloonContent: 'Содержание балуна',
+                balloon: false,
               },
               options: {
                 iconLayout: 'default#image',
@@ -80,7 +82,7 @@ export class HomeComponent implements OnInit {
           geometry,
           properties: {
             hintContent: point.salePointName,
-            balloonContent: 'Содержание балуна',
+            balloon: false,
           },
           options: {
             iconLayout: 'default#image',
