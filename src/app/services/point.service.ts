@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IPoint, IPointBookBody, IPointQuery, ResponseModel } from './types';
 
 @Injectable({
@@ -11,6 +11,8 @@ export class PointService {
   constructor(private readonly http: HttpClient) {}
 
   private readonly pointsUrl = environment.apiUrl + '/points';
+  public currentPoint = new BehaviorSubject<IPoint | null>(null);
+  public currentTemplate = new BehaviorSubject<string>('search');
 
   public get(paramsObject?: IPointQuery): Observable<ResponseModel<IPoint[]>> {
     const params = new HttpParams({ fromObject: paramsObject });

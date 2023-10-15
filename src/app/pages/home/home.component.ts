@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   public isLoading = new BehaviorSubject<boolean>(true);
+  public currTemplate = this.pointService.currentTemplate;
 
   clustererOptions: ymaps.IClustererOptions = {
     gridSize: 36,
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
               properties: {
                 hintContent: point.salePointName,
                 balloon: false,
+                iconCaption: point.id,
               },
               options: {
                 iconLayout: 'default#image',
@@ -83,6 +85,7 @@ export class HomeComponent implements OnInit {
           properties: {
             hintContent: point.salePointName,
             balloon: false,
+            iconCaption: point.id,
           },
           options: {
             iconLayout: 'default#image',
@@ -98,6 +101,11 @@ export class HomeComponent implements OnInit {
   selectPlacemark(placemark: Placemark): void {
     this.parameters = null;
     this.selectedPlacemark = placemark;
+    const currentPoint = this.points.find((point: IPoint) => point.id == placemark.properties.iconCaption) || null;
+    this.pointService.currentPoint.next(currentPoint);
+    if (currentPoint) {
+      this.pointService.currentTemplate.next('pointCard');
+    }
   }
 
   buildRoute(): void {
