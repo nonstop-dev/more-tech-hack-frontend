@@ -17,6 +17,7 @@ export interface IPoint {
   distance: number;
   kep: boolean;
   myBranch: boolean;
+  scheduledTime: string;
 }
 
 export interface IPointOpenHour {

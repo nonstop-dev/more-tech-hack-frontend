@@ -98,6 +98,39 @@ export class HomeComponent implements OnInit {
     this.placemarks = placemarks;
   }
 
+  public onRecommendChecked(value: boolean): void {
+    if (value) {
+      const placemarks: Placemark[] = [];
+      this.points
+        .map((point: IPoint) => {
+          const scheduledlDate = new Date(point.scheduledTime);
+          const scheduledlDateLocal = new Date(scheduledlDate.toLocaleString());
+          const currentDate = new Date();
+          scheduledlDateLocal.setTime(scheduledlDateLocal.getTime() - 2 * 60 * 60 * 1000);
+          point.scheduledTime = currentDate <= scheduledlDateLocal ? point.scheduledTime : '';
+          return point;
+        })
+        .filter((point: IPoint) => point.scheduledTime !== '')
+        .forEach((point: IPoint) => {
+          const geometry = [point.latitude, point.longitude];
+          placemarks.push({
+            geometry,
+            properties: {
+              hintContent: point.salePointName,
+              balloon: false,
+              iconCaption: point.id,
+            },
+            options: {
+              iconLayout: 'default#image',
+              iconImageHref: '../assets/images/map_logo.png',
+              iconImageSize: [36, 36],
+            },
+          });
+        });
+    }
+    // this.placemarks = placemarks;
+  }
+
   selectPlacemark(placemark: Placemark): void {
     this.parameters = null;
     this.selectedPlacemark = placemark;

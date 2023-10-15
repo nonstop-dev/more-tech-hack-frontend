@@ -2,7 +2,8 @@
   <app-search-card
     *ngIf="(currTemplate | async) === 'search'"
     (changeTransportEvent)="changeTransport($event)"
-    (search)="onSearchChanged($event)"></app-search-card>
+    (search)="onSearchChanged($event)"
+    (check)="onRecommendChecked($event)"></app-search-card>
   <app-point-card (buildRouteEvent)="buildRoute()" *ngIf="(currTemplate | async) === 'pointCard'"></app-point-card>
   <div class="map-container" *ngIf="(isLoading | async) === false">
     <ya-map [center]="[55.75, 37.63]">

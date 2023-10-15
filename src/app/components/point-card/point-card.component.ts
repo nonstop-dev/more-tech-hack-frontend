@@ -35,7 +35,6 @@ export class PointCardComponent implements OnInit, OnDestroy {
         takeUntil(this.$unsubscribe),
         tap((value: IPoint | null) => {
           this.currentPoint = value;
-          console.log(this.currentPoint);
         })
       )
       .subscribe();
